@@ -68,7 +68,7 @@ Principais recursos utilizados:
 ## IMAGENS DO PROJETO
 
 ![Modelo de Dados](images/Modelo_Olist.png)
-![Dashboard Olist](imagens/Dashboard_Olist.png)
+![Dashboard Olist](images/Dashboard_Olist.png)
 
 ## GRANULARIDADE DOS DADOS
 
