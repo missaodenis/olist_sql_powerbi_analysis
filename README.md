@@ -44,8 +44,7 @@ O projeto integra as seguintes tabelas disponibilizadas na plataforma Kaggle:
  5. order_payments (informações dos pagamentos)
  6. order_reviews (informações das avaliações dos clientes)
 
-<<<<<<< HEAD
-DASHBOARD EM POWER BI
+## DASHBOARD EM POWER BI
 
 Além da construção da base analítica em SQL, foi desenvolvido um dashboard interativo no Power BI para exploração visual dos principais indicadores comerciais e logísticos do e-commerce.
 
@@ -66,15 +65,10 @@ Principais recursos utilizados:
 - modelagem dimensional
 - KPIs analíticos
 
-IMAGENS DO PROJETO
+## IMAGENS DO PROJETO
 
 ![Modelo de Dados](images/Modelo_Olist.png)
 ![Dashboard Olist](imagens/Dashboard_Olist.png)
-=======
-## IMAGEM DO MODELO
-
-![Modelo Dados](images/Modelo_Olist.png)
->>>>>>> 655a9b2cb417b38384dbcf93cc1c76f12e0c3170
 
 ## GRANULARIDADE DOS DADOS
 
