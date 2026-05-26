@@ -1,49 +1,50 @@
-Análise de Dados de E-commerce com SQL
+# Análise de Dados de E-commerce com SQL
 
-PRINCIPAIS INSIGHTS
+## PRINCIPAIS INSIGHTS
 
-1. Maior tempo de entrega implicam em avaliações significativamente mais baixas
-2. Entregas realizadas em até 10 dias concentram a maior parte das melhores avaliações
-3. Estados da região Norte apresentam maior atraso para a entrega
-4. Ticket médio é relativamente baixo (R$ 137,75), indicando potencial para aumento de receita por pedido
-5. Produtos de beleza e saúde apresentam a maior receita
+ 1. Maior tempo de entrega implicam em avaliações significativamente mais baixas
+ 2. Entregas realizadas em até 10 dias concentram a maior parte das melhores avaliações
+ 3. Estados da região Norte apresentam maior atraso para a entrega
+ 4. Ticket médio é relativamente baixo (R$ 137,75), indicando potencial para aumento de receita por pedido
+ 5. Produtos de beleza e saúde apresentam a maior receita
 
-VISÃO GERAL
+## VISÃO GERAL
 
 Este projeto tem como objetivo construir uma base analítica em SQL, praticando queries em um dataset de e-commerce, disponível em https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce.
 
 O foco do projeto é simular a construção de uma base analítica em um cenário real, lidando com problemas como integração de várias tabelas, controle de granularidade e consistência dos dados, além de responder algumas perguntas de negócio com a base finalizada.
 
-OBJETIVOS
+## OBJETIVOS
 
-1. Praticar JOINs e agregações em SQL
-2. Entender os problemas que podem aparecer com a granularidade dos dados
-3. Construir uma base pronta para análise
-4. Identificar e corrigir problemas comuns em modelagem de dados
-5. Responder perguntas de negócio a partir dos dados estruturados
+ 1. Praticar JOINs e agregações em SQL
+ 2. Entender os problemas que podem aparecer com a granularidade dos dados
+ 3. Construir uma base pronta para análise
+ 4. Identificar e corrigir problemas comuns em modelagem de dados
+ 5. Responder perguntas de negócio a partir dos dados estruturados
 
-PERGUNTAS DE NEGÓCIO
+## PERGUNTAS DE NEGÓCIO
 
 A base foi estruturada para responder questões como:
 
-1. Qual o ticket médio por pedido?
-2. Qual o ticket médio por estado (UF)?
-3. Quais estados apresentam maior atraso logístico?
-4. Quais categorias de produtos geram maior receita?
-5. Existe relação entre peso do produto e tempo de entrega?
-6. O atraso impacta a avaliação do cliente?
+ 1. Qual o ticket médio por pedido?
+ 2. Qual o ticket médio por estado (UF)?
+ 3. Quais estados apresentam maior atraso logístico?
+ 4. Quais categorias de produtos geram maior receita?
+ 5. Existe relação entre peso do produto e tempo de entrega?
+ 6. O atraso impacta a avaliação do cliente?
 
-ESTRUTURA DOS DADOS
+## ESTRUTURA DOS DADOS
 
 O projeto integra as seguintes tabelas disponibilizadas na plataforma Kaggle:
 
-1. orders (informações dos pedidos)
-2. customers (informações dos clientes)
-3. order_items (itens de pedido: preço e frete por produto)
-4. products (informações descritivas dos produtos)
-5. order_payments (informações dos pagamentos)
-6. order_reviews (informações das avaliações dos clientes)
+ 1. orders (informações dos pedidos)
+ 2. customers (informações dos clientes)
+ 3. order_items (itens de pedido: preço e frete por produto)
+ 4. products (informações descritivas dos produtos)
+ 5. order_payments (informações dos pagamentos)
+ 6. order_reviews (informações das avaliações dos clientes)
 
+<<<<<<< HEAD
 DASHBOARD EM POWER BI
 
 Além da construção da base analítica em SQL, foi desenvolvido um dashboard interativo no Power BI para exploração visual dos principais indicadores comerciais e logísticos do e-commerce.
@@ -69,25 +70,30 @@ IMAGENS DO PROJETO
 
 ![Modelo de Dados](images/Modelo_Olist.png)
 ![Dashboard Olist](imagens/Dashboard_Olist.png)
+=======
+## IMAGEM DO MODELO
 
-GRANULARIDADE DOS DADOS
+![Modelo Dados](images/Modelo_Olist.png)
+>>>>>>> 655a9b2cb417b38384dbcf93cc1c76f12e0c3170
+
+## GRANULARIDADE DOS DADOS
 
 Para garantir consistência nas análises, foi necessário diferenciar os níveis de granularidade das tabelas:
 
-1. Pedido (order): representa uma compra realizada por um cliente (order_id)
-2. Item do pedido (order_item): representa um produto dentro de um pedido
-3. Produto (product): representa o item vendido, independentemente do pedido
+ 1. Pedido (order): representa uma compra realizada por um cliente (order_id)
+ 2. Item do pedido (order_item): representa um produto dentro de um pedido
+ 3. Produto (product): representa o item vendido, independentemente do pedido
 
 Um pedido pode conter múltiplos itens, e cada item está associado a um único produto.
 
 Por isso, foram criadas duas views com granularidades diferentes:
 
-1. pedidos_base (1 linha = 1 pedido)
-2. itens_base (1 linha = 1 produto dentro de um pedido)
+ 1. pedidos_base (1 linha = 1 pedido)
+ 2. itens_base (1 linha = 1 produto dentro de um pedido)
 
-CONSTRUÇÃO DAS VIEWS
+## CONSTRUÇÃO DAS VIEWS
 
-1. pedidos_base
+ 1. pedidos_base
 
 Foi criada para que cada linha corresponda a um pedido.
  
@@ -107,7 +113,7 @@ frete_total                    -- somatório do preço do frete dos produtos em 
 
 Os valores de total_pedido e frete_total são obtidos a partir da agregação (SUM) da tabela order_items, garantindo que cada pedido seja representado por uma única linha.
 
-2. itens_base
+ 2. itens_base
 
 Foi criada para que cada linha corresponda a um item. 
 
@@ -127,7 +133,7 @@ freight_value                  -- preço do frete do produto
 
 Essa view mantém o nível mais granular dos dados, permitindo análises relacionadas a produtos e suas características.
 
-ANÁLISES DE NEGÓCIO
+## ANÁLISES DE NEGÓCIO
 
 ## 1. Ticket médio por pedido
 
@@ -230,7 +236,7 @@ Estratégias Recomendadas:
 
 Adotar práticas de promoções e propagandas desses produtos que lideram, focando no que a empresa tem acertado.
 
-## 5. Peso do produto pelo tempo de entrega
+## 5. Peso do produto x Tempo de entrega
 
 ### Consulta SQL
 
@@ -284,7 +290,7 @@ Estratégias Recomendadas:
 
 Identificação de gargalos logísticos e um monitoramento de tempo médio de entrega por região
 
-CONCLUSÃO
+## CONCLUSÃO
 
 A construção dessa base evidenciou a importância de uma criteriosa modelagem dos dados. A definição de cada chave primária e a forma de realização dos JOINS tem um impacto relevante no trabalho. Decisões incorretas nesse princípio geram duplicidades de registros e comprometem a qualidade das análises.
 
